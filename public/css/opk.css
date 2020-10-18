@@ -1,0 +1,289 @@
+
+                      #loading-indicator {
+                          position: absolute;
+                          left: 10px;
+                          top: 10px;
+                      }
+
+/* Start by setting display:none to make this hidden.
+Then we position it in relation to the viewport window
+with position:fixed. Width, height, top and left speak
+for themselves. Background we set to 80% white with
+our animation centered, and no-repeating */
+.modal {
+    display:    none;
+    position:   fixed;
+    z-index:    10000;
+    top:        0;
+    left:       0;
+    height:     100%;
+    width:      100%;
+    background: rgba( 255, 255, 255, .8 )
+    url('../img/loading.gif')  50% 50% no-repeat;
+}
+
+/* When the body has the loading class, we turn
+   the scrollbar off with overflow:hidden */
+body.loading .modal {
+    overflow: hidden;
+}
+
+/* Anytime the body has the loading class, our
+   modal element will be visible */
+body.loading .modal {
+    display: block;
+}
+/* Base for label styling */
+[type="checkbox"]:not(:checked),
+[type="checkbox"]:checked {
+    position: absolute;
+    left: -9999px;
+}
+[type="checkbox"]:not(:checked) + label,
+[type="checkbox"]:checked + label {
+    position: relative;
+    padding-left: 1.95em;
+    cursor: pointer;
+}
+
+/* checkbox aspect */
+[type="checkbox"]:not(:checked) + label:before,
+[type="checkbox"]:checked + label:before {
+    content: '';
+    position: absolute;
+    left: 0; top: 0;
+    width: 1.25em; height: 1.25em;
+    border: 2px solid #ccc;
+    background: #fff;
+    border-radius: 4px;
+    box-shadow: inset 0 1px 3px rgba(0,0,0,.1);
+}
+/* checked mark aspect */
+[type="checkbox"]:not(:checked) + label:after,
+[type="checkbox"]:checked + label:after {
+    content: '\2713\0020';
+    position: absolute;
+    top: .15em; left: .22em;
+    font-size: 1.3em;
+    line-height: 0.8;
+    color: #09ad7e;
+    transition: all .2s;
+    font-family: 'Lucida Sans Unicode', 'Arial Unicode MS', Arial;
+}
+/* checked mark aspect changes */
+[type="checkbox"]:not(:checked) + label:after {
+    opacity: 0;
+    transform: scale(0);
+}
+[type="checkbox"]:checked + label:after {
+    opacity: 1;
+    transform: scale(1);
+}
+/* disabled checkbox */
+[type="checkbox"]:disabled:not(:checked) + label:before,
+[type="checkbox"]:disabled:checked + label:before {
+    box-shadow: none;
+    border-color: #bbb;
+    background-color: #ddd;
+}
+[type="checkbox"]:disabled:checked + label:after {
+    color: #999;
+}
+[type="checkbox"]:disabled + label {
+    color: #aaa;
+}
+/* accessibility */
+[type="checkbox"]:checked:focus + label:before,
+[type="checkbox"]:not(:checked):focus + label:before {
+    border: 2px dotted blue;
+}
+
+/* hover style just for information */
+label:hover:before {
+    border: 2px solid #4778d9!important;
+}
+
+
+[type="radio"]:checked,
+[type="radio"]:not(:checked) {
+    position: absolute;
+    left: -9999px;
+}
+[type="radio"]:checked + label,
+[type="radio"]:not(:checked) + label
+{
+    position: relative;
+    padding-left: 28px;
+    cursor: pointer;
+    line-height: 20px;
+    display: inline-block;
+    color: #666;
+}
+[type="radio"]:checked + label:before,
+[type="radio"]:not(:checked) + label:before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 18px;
+    height: 18px;
+    border: 1px solid #ddd;
+    border-radius: 100%;
+    background: #fff;
+}
+[type="radio"]:checked + label:after,
+[type="radio"]:not(:checked) + label:after {
+    content: '';
+    width: 12px;
+    height: 12px;
+    background: #09ad7e;
+    position: absolute;
+    top: 4px;
+    left: 4px;
+    border-radius: 100%;
+    -webkit-transition: all 0.2s ease;
+    transition: all 0.2s ease;
+}
+[type="radio"]:not(:checked) + label:after {
+    opacity: 0;
+    -webkit-transform: scale(0);
+    transform: scale(0);
+}
+[type="radio"]:checked + label:after {
+    opacity: 1;
+    -webkit-transform: scale(1);
+    transform: scale(1);
+}
+
+#preview {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#preview img {
+    max-width: 100%;
+    max-height: 500px;
+}
+.imgpreview {
+    width: 128px;
+    height: 128px
+}
+.file-select > .select-button {
+    padding: 1rem;
+
+    color: white;
+    background-color: #2EA169;
+
+    border-radius: .3rem;
+
+    text-align: center;
+    font-weight: bold;
+}
+
+/* Don't forget to hide the original file input! */
+.file-select > input[type="file"] {
+    display: none;
+}
+
+
+                      /* Anytime the body has the loading class, our
+                         modal element will be visible */
+                      body.loading .modal {
+                          display: block;
+                      }
+
+                      td {
+                          vertical-align: middle;
+                      }
+
+                      .modal-mask {
+                          position: fixed;
+                          z-index: 9999;
+                          top: 0;
+                          left: 0;
+                          width: 100%;
+                          height: 100%;
+                          background-color: rgba(0, 0, 0, .5);
+                          display: table;
+                          transition: opacity .3s ease;
+                      }
+
+                      .modal-wrapper {
+                          display: table-cell;
+                          vertical-align: middle;
+                      }
+                      .modal-body {
+                          min-height: auto;
+                      }
+
+                      /* Base for label styling */
+                      [type="checkbox"]:not(:checked),
+                      [type="checkbox"]:checked {
+                          position: absolute;
+                          left: -9999px;
+                      }
+                      [type="checkbox"]:not(:checked) + label,
+                      [type="checkbox"]:checked + label {
+                          position: relative;
+                          padding-left: 1.95em;
+                          cursor: pointer;
+                      }
+
+                      /* checkbox aspect */
+                      [type="checkbox"]:not(:checked) + label:before,
+                      [type="checkbox"]:checked + label:before {
+                          content: '';
+                          position: absolute;
+                          left: 0; top: 0;
+                          width: 1.25em; height: 1.25em;
+                          border: 2px solid #ccc;
+                          background: #fff;
+                          border-radius: 4px;
+                          box-shadow: inset 0 1px 3px rgba(0,0,0,.1);
+                      }
+                      /* checked mark aspect */
+                      [type="checkbox"]:not(:checked) + label:after,
+                      [type="checkbox"]:checked + label:after {
+                          content: '\2713\0020';
+                          position: absolute;
+                          top: .15em; left: .22em;
+                          font-size: 1.3em;
+                          line-height: 0.8;
+                          color: #09ad7e;
+                          transition: all .2s;
+                          font-family: 'Lucida Sans Unicode', 'Arial Unicode MS', Arial;
+                      }
+                      /* checked mark aspect changes */
+                      [type="checkbox"]:not(:checked) + label:after {
+                          opacity: 0;
+                          transform: scale(0);
+                      }
+                      [type="checkbox"]:checked + label:after {
+                          opacity: 1;
+                          transform: scale(1);
+                      }
+                      /* disabled checkbox */
+                      [type="checkbox"]:disabled:not(:checked) + label:before,
+                      [type="checkbox"]:disabled:checked + label:before {
+                          box-shadow: none;
+                          border-color: #bbb;
+                          background-color: #ddd;
+                      }
+                      [type="checkbox"]:disabled:checked + label:after {
+                          color: #999;
+                      }
+                      [type="checkbox"]:disabled + label {
+                          color: #aaa;
+                      }
+                      /* accessibility */
+                      [type="checkbox"]:checked:focus + label:before,
+                      [type="checkbox"]:not(:checked):focus + label:before {
+                          border: 2px dotted blue;
+                      }
+
+                      /* hover style just for information */
+                      label:hover:before {
+                          border: 2px solid #4778d9!important;
+                      }
+

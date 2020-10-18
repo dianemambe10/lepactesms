@@ -48,7 +48,7 @@ return [
         ],
         'admins' => [
             'driver' => 'passport',
-            'provider' => 'admins',
+            'provider' => 'admin',
         ],
 
         'customer' => [

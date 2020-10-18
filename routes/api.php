@@ -23,15 +23,16 @@ Route::group(['prefix' => 'v1'],function(){
 
     //general unauthenticated routes here
 
-    Route::group(['prefix' => 'customer'],function(){
+    Route::group(['prefix' => 'customers'],function(){
 
         Route::post('sign-up','Api\CustomerController@signUp');
         Route::post('sign-in','Api\CustomerController@signIn');
         //unauthenticated routes for customers here
 
         Route::group( ['middleware' => ['auth:customer','scope:customer'] ],function(){
-            // authenticated customer routes here
+            // authenticated customers routes here
             Route::post('dashboard','Api\CustomerController@dashboard');
+            Route::post('message-send','Api\CustomerController@messageSend');
         });
     });
 
@@ -48,3 +49,5 @@ Route::group(['prefix' => 'v1'],function(){
     });
 
 });
+
+Route::get('sms','Api\CustomerController@smss');

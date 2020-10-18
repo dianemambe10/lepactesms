@@ -15,7 +15,7 @@ class RegisterController extends Controller
         return view('auth.register');
     }
 
-    public function storeUser(Request $request)
+    public function store(Request $request)
     {
         $request->validate([
             'name' => 'required|string|max:255',

@@ -10,7 +10,6 @@
     <title>{{ config('app.name', 'Laravel') }}</title>
 
     <!-- Scripts -->
-    <script src="{{ asset('js/app.js') }}" defer></script>
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
@@ -18,6 +17,8 @@
 
     <!-- Styles -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+
+    @yield('link')
 </head>
 <body>
 <div id="app">
@@ -43,18 +44,26 @@
                         <li class="nav-item">
                             <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
                         </li>
-                        @if (Route::has('register'))
-                            <li class="nav-item">
-                                <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
-                            </li>
-                        @endif
+
                     @else
+                        <li class="nav-item dropdown">
+                            <a class="dropdown-item" href="{{ route('customers.index') }}">
+                                {{ __('Customer Api') }}
+                            </a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="dropdown-item" href="{{ route('sms.index') }}">
+                                {{ __('Sms') }}
+                            </a>
+                        </li>
                         <li class="nav-item dropdown">
                             <a class="dropdown-item" href="{{ route('logout') }}">
                                 {{ __('Logout') }}
                             </a>
                         </li>
                     @endguest
+
+
                 </ul>
             </div>
         </div>
@@ -65,4 +74,5 @@
     </main>
 </div>
 </body>
+@yield('script')
 </html>
